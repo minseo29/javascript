@@ -17,7 +17,7 @@ function removeTodo(e) {
 
 
     const newTodos = todos.filter((item) => {
-        item.id == e.target.parentNode.id;
+        item.id !== e.target.parentNode.id;
     });
 
     todos = newTodos;
@@ -30,7 +30,7 @@ function removeTodo(e) {
 function paintTodo(text) {
     const li = document.createElement("li");
     const span = document.createElement("span");
-    span.innerHTML = "&times";
+    span.innerHTML = "&times;";
     li.innerText = text;
     li.id = todos.length + 1;
     li.appendChild(span);
@@ -49,11 +49,11 @@ function paintTodo(text) {
 function handleSubmit(e) {
     e.preventDefault();
 
-    if(input.value) {
+    if (input.value) {
         paintTodo(input.value);
         form.reset();
     } else {
-        return;
+      return;
     }
 }
 
